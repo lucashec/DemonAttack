@@ -1,0 +1,29 @@
+func:
+	beq $5, 0, entDireita
+		
+
+entDireita:
+	jal direita
+	jr $31
+direita:
+	jr $31	
+
+Cria uma função, dentro cria três funções: de condição, de ação (do que você quer fazer), e pra retornar.
+Vou tentar colocar da forma sem macro
+
+jal func
+
+func:
+  j func_condition
+  func_cont:
+    # seu código
+    j func_rest
+  func_condition:
+    beq condition func_cont
+  func_rest:
+    jr $31
+
+limite esquerda: 0x1000ff98
+limite direita:  0x1001017c
+
+

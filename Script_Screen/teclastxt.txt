@@ -1,0 +1,20 @@
+a - 0x61
+s - 0x73
+d - 0x64
+w - 0x77
+
+j - 0x6a
+
+
+.text
+main:
+    	addi $s0, $0, 113 
+ 	lui $t0, 0xFFFF   #$t0 = 0xFFFF0000
+	lui $10, 0x1001
+	addi $11, 0x3cd333	
+poll:                 # polling procedure
+    lw $t1, 0($t0) 
+    andi $t1, $t1, 0x0001
+    beq $t1, $zero, poll 
+
+    lw $a0, 4($t0) 
